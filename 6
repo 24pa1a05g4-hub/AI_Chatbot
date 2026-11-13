@@ -1,0 +1,51 @@
+
+import React, { useState } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+
+      <Child name="Monika" />
+    </div>
+  );
+}
+
+function Child(props) {
+  return <h2>Hello {props.name}</h2>;
+}
+
+export default App;
+
+b
+
+import './App.css';
+
+function App() {
+  const name = "Monika";
+
+  return (
+    <div className="box">
+      <h1>{name}</h1>
+      <p>Welcome to ReactJS</p>
+    </div>
+  );
+}
+
+export default App;
+
+app.css
+
+.box {
+  background-color: lightblue;
+  color: black;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid blue;
+}
