@@ -1,0 +1,233 @@
+Brooo got it! ❤️ You want ALL 7 PROGRAMS (1a, 1b, 2a, 2b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b) and how to run each in VS Code without confusion.
+
+I'll give you a common setup, exact filenames, commands, and expected outputs.
+
+### Part 1: ExpressJS programs (1a, 1b, 2a, 2b)
+
+### Step 1: Common setup
+
+Open VS Code → create folder `ExpressLab` → open terminal.
+
+Run:
+
+```bash
+npm init -y
+npm install express ejs
+```
+
+Create these files:
+
+```text
+ExpressLab
+│
+├── 1a.js
+├── 1b.js
+├── 2a.js
+├── 2b.js
+└── views
+    └── home.ejs
+```
+
+### Step 2: Run each program
+
+| Program           | Command    | Browser URL         |
+| ----------------- | ---------- | ------------------- |
+| 1(a) Routes       | node 1a.js | localhost:3000      |
+| 1(b) HTTP methods | node 1b.js | localhost:3000/data |
+| 2(a) EJS          | node 2a.js | localhost:3000      |
+| 2(b) Forms        | node 2b.js | localhost:3000      |
+
+Important: Stop the previous program using `Ctrl + C` before running the next one.
+
+For 1(b), test POST and DELETE using Thunder Client or Postman. A browser address bar only sends GET requests.
+
+For 2(a), `home.ejs` must be inside the `views` folder.
+
+### Part 2: ReactJS programs (5a, 5b, 6a, 6b, 7a, 7b, 8a)
+
+### Step 1: Create React project
+
+Open a new VS Code terminal and run:
+
+```bash
+npm create vite@latest ReactLab -- --template react
+```
+
+Then:
+
+```bash
+cd ReactLab
+```
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+Open the URL shown in terminal, usually:
+
+`http://localhost:5173`
+
+### Step 2: Where to paste code
+
+Open:
+
+```text
+ReactLab
+ └── src
+      └── App.jsx
+```
+
+Delete existing code in `App.jsx` and paste your required program.
+
+| Question | Code to paste              |
+| -------- | -------------------------- |
+| 5(a)     | HTML rendering code        |
+| 5(b)     | JSX code                   |
+| 6(a)     | Props and state code       |
+| 6(b)     | CSS/Sass code              |
+| 7(a)     | Event handling code        |
+| 7(b)     | Conditional rendering code |
+| 8(a)     | List rendering code        |
+
+For 6(b), also create `App.css` inside `src` and import it using:
+
+```javascript
+import './App.css';
+```
+
+To run: Keep `npm run dev` running. Save `App.jsx` after changing each program. The browser updates automatically.
+
+You do not need to create seven separate React projects.
+
+### Part 3: MongoDB programs (8b, 9a, 9b)
+
+Run in MongoDB Shell – mongosh
+
+These programs are NOT run using `node`. They are MongoDB commands.
+
+### Step 1: Open MongoDB in VS Code
+
+Open a new VS Code terminal and type:
+
+```bash
+mongosh
+```
+
+If successful, you'll see a MongoDB shell prompt similar to:
+
+```text
+test>
+```
+
+If MongoDB Server is installed as a Windows service but isn't running, open Command Prompt as Administrator and run:
+
+```bash
+net start MongoDB
+```
+
+Then return to VS Code and run `mongosh`.
+
+If `mongosh` is not recognized, install MongoDB Shell separately; installing VS Code or Node.js alone does not install it.
+
+### Step 2: Run each program
+
+| Question      | Commands to execute                 |
+| ------------- | ----------------------------------- |
+| 8(b) CRUD     | Insert, find, update, remove        |
+| 9(a) Database | use college and create/drop         |
+| 9(b) Queries  | Find, limit, sort, index, aggregate |
+
+### 8(b) CRUD
+
+Paste each MongoDB query into `mongosh`:
+
+```javascript
+use college
+```
+
+```javascript
+db.students.insert({name:"Monika", age:20})
+```
+
+```javascript
+db.students.find()
+```
+
+```javascript
+db.students.update(
+{name:"Monika"},
+{$set:{age:21}}
+)
+```
+
+```javascript
+db.students.remove({name:"Monika"})
+```
+
+### 9(a) Create and drop
+
+```javascript
+use college
+```
+
+```javascript
+db.createCollection("students")
+```
+
+```javascript
+show collections
+```
+
+```javascript
+db.students.drop()
+```
+
+```javascript
+db.dropDatabase()
+```
+
+### 9(b) MongoDB queries
+
+```javascript
+use college
+```
+
+```javascript
+db.students.insertMany([
+{name:"Monika",age:20,marks:90},
+{name:"Ravi",age:21,marks:80},
+{name:"Anu",age:19,marks:95}
+])
+```
+
+Then execute:
+
+```javascript
+db.students.find()
+```
+
+```javascript
+db.students.find().limit(2)
+```
+
+```javascript
+db.students.find().sort({age:1})
+```
+
+```javascript
+db.students.createIndex({name:1})
+```
+
+```javascript
+db.students.aggregate([
+{$group:{_id:null, avg:{$avg:"$marks"}}}
+])
+```
+
+Expected: Three student records, limited records, sorted records, index creation confirmation and average marks of `88.33`.
+
+##
