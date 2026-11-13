@@ -1,0 +1,41 @@
+
+function App() {
+  const fruits = ["Apple", "Mango", "Orange"];
+
+  return (
+    <div>
+      <h1>Fruit List</h1>
+
+      <ul>
+        {fruits.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+
+b
+
+
+// CREATE - Insert document
+db.students.insert({
+  name: "Monika",
+  age: 20,
+  branch: "CSE"
+});
+
+// READ - Display documents
+db.students.find();
+
+// UPDATE - Update document
+db.students.update(
+  { name: "Monika" },
+  { $set: { age: 21 } }
+);
+
+// DELETE - Remove document
+db.students.remove({ name: "Monika" });
+
