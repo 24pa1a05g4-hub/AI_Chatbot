@@ -1,0 +1,60 @@
+a.
+
+const express = require('express');
+const app = express();
+
+// Normal route
+app.get('/', (req, res) => {
+    res.send("Welcome to ExpressJS");
+});
+
+// Handling routes
+app.get('/about', (req, res) => {
+    res.send("About Page");
+});
+
+// Route parameter
+app.get('/user/:id', (req, res) => {
+    res.send("User ID: " + req.params.id);
+});
+
+// Query parameter
+app.get('/search', (req, res) => {
+    res.send("Search: " + req.query.name);
+});
+
+// URL building
+app.get('/home', (req, res) => {
+    res.redirect('/about');
+});
+
+app.listen(3000, () => {
+    console.log("Server running");
+});
+
+b.
+
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Accept data
+app.post('/add', (req, res) => {
+    res.send("Data Added");
+});
+
+// Retrieve data
+app.get('/data', (req, res) => {
+    res.send("Data Retrieved");
+});
+
+// Delete data
+app.delete('/delete/:id', (req, res) => {
+    res.send("Data Deleted: " + req.params.id);
+});
+
+app.listen(3000, () => {
+    console.log("Server running");
+});
+
