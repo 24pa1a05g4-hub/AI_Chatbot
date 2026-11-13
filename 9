@@ -1,0 +1,47 @@
+
+// Create database
+use college
+
+// Create collection
+db.createCollection("students");
+
+// Display collections
+show collections
+
+// Drop collection
+db.students.drop();
+
+// Drop database
+db.dropDatabase();
+
+b
+
+
+// Insert records
+db.students.insertMany([
+  {name: "Monika", age: 20, marks: 90},
+  {name: "Ravi", age: 21, marks: 80},
+  {name: "Anu", age: 19, marks: 95}
+]);
+
+// 1. Find records
+db.students.find();
+
+// 2. Limit records
+db.students.find().limit(2);
+
+// 3. Sort records
+db.students.find().sort({age: 1});
+
+// 4. Create index
+db.students.createIndex({name: 1});
+
+// 5. Aggregate records
+db.students.aggregate([
+  {
+    $group: {
+      _id: null,
+      averageMarks: {$avg: "$marks"}
+    }
+  }
+]);
